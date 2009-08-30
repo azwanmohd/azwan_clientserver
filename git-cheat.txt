@@ -1,0 +1,30 @@
+git init
+git add .
+git clone git@github.com:mohdzamri/client-server-notes.git
+git config --global user.name "Your Name Comes Here"
+git config --global user.email you@yourdomain.example.com
+git add file1 file2 file3
+git commit # commit into local repository
+
+git commit -a
+
+steps;
+git init
+git add .
+git status
+git commit -m "note" # commit into local repositories
+
+# remove
+git rm test.txt
+git commit -m "remove test.txt"
+
+# rename
+git mv foo bar
+git commit -m "move foo -> bar"
+
+# clone
+git clone <source> <destination>
+
+
+
+

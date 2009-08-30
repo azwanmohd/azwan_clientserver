@@ -1,0 +1,28 @@
+Assalamualaikum wrt wbt,
+
+Dear Sir,
+
+We would like to inform you that our group members are Mohd Asri Bin Mohamad Stambul (P50093) and me myself, Azwan Bin Mohamed (P47883). Information pertaining to our task are as follows:
+
+
+1) Individual Paper
+
+    * Mohd Asri - "P2P Computing"
+    * Azwan - "Service Oriented Architecture (SOA) - The Integration Among Electronic Government Applications"
+
+2) Group Project
+
+    * Sistem Cadangan JPA  - http://www.jpa.gov.my/cadangan/
+    * System migration to ruby-based platform
+
+3) Clone URL
+
+    * Mohd Asri -  git://github.com/mohdasri/client-server.git
+    * Azwan -  git://github.com/azwanmohd/ClientSERVER.git
+
+
+Thank You.
+
+Regards
+
+Azwan & Asri

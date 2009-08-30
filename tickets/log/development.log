@@ -1,0 +1,871 @@
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-16 23:11:27) [GET]
+
+ActionController::RoutingError (No route matches "/ticket" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-16 23:11:33) [GET]
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: tickets: SELECT * FROM "tickets" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tickets: SELECT * FROM "tickets" ):
+  app/controllers/tickets_controller.rb:5:in `index'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (16.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (94.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (171.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTickets (20090716151034)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "seat_id_seq" varchar(255), "address" text, "price_paid" decimal, "email_address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090716151034')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("tickets")[0m
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-16 23:16:34) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 2188ms (View: 2172, DB: 0) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2009-07-16 23:16:40) [GET]
+Rendering template within layouts/tickets
+Rendering tickets/new
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/tickets/new]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-07-16 23:16:59) [POST]
+  Parameters: {"ticket"=>{"name"=>"azwan bin mohamed", "seat_id_seq"=>"0012", "price_paid"=>"123", "address"=>"kampung asdasndw", "email_address"=>"azsa@askdj"}, "commit"=>"Create", "authenticity_token"=>"jZjK1EVXY/c7DhYXmrqnUu/ztUUsT5x/jwFjMeBIN2U="}
+  [4;36;1mTicket Create (0.0ms)[0m   [0;1mINSERT INTO "tickets" ("name", "updated_at", "seat_id_seq", "price_paid", "address", "email_address", "created_at") VALUES('azwan bin mohamed', '2009-07-16 15:16:59', '0012', 123.0, 'kampung asdasndw', 'azsa@askdj', '2009-07-16 15:16:59')[0m
+Redirected to http://localhost:3000/tickets/1
+Completed in 672ms (DB: 0) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-16 23:16:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets"."id" = 1) [0m
+Rendering template within layouts/tickets
+Rendering tickets/show
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets/1]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-16 23:17:04) [GET]
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 09:33:52) [GET]
+
+ActionController::RoutingError (No route matches "/etiqas" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 09:33:59) [GET]
+
+ActionController::RoutingError (No route matches "/etiqas" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 09:34:03) [GET]
+
+ActionController::RoutingError (No route matches "/etiqa" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 09:34:12) [GET]
+
+ActionController::RoutingError (No route matches "/etiqa" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 09:34:18) [GET]
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 1610ms (View: 1563, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2009-07-27 09:40:12) [GET]
+Rendering template within layouts/tickets
+Rendering tickets/new
+Completed in 156ms (View: 31, DB: 0) | 200 OK [http://localhost/tickets/new]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-07-27 09:40:37) [POST]
+  Parameters: {"ticket"=>{"name"=>"khairina azura jamian", "seat_id_seq"=>"A122", "price_paid"=>"20", "address"=>"test 123\r\njalan 3\r\n43000 kajang", "email_address"=>"khairina@yahoo.com"}, "commit"=>"Create", "authenticity_token"=>"21M/xqUjJlmtg/jvB7F2JT49jaQNdsFvO1KPcNMJx2A="}
+  [4;35;1mTicket Create (0.0ms)[0m   [0mINSERT INTO "tickets" ("name", "updated_at", "seat_id_seq", "price_paid", "address", "email_address", "created_at") VALUES('khairina azura jamian', '2009-07-27 01:40:37', 'A122', 20.0, 'test 123
+jalan 3
+43000 kajang', 'khairina@yahoo.com', '2009-07-27 01:40:37')[0m
+Redirected to http://localhost:3000/tickets/2
+Completed in 625ms (DB: 0) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 09:40:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 2) [0m
+Rendering template within layouts/tickets
+Rendering tickets/show
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets/2]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 09:40:40) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2009-07-27 09:40:41) [GET]
+Rendering template within layouts/tickets
+Rendering tickets/new
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/tickets/new]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-07-27 09:42:09) [POST]
+  Parameters: {"ticket"=>{"name"=>"raiyan iman bin azwan", "seat_id_seq"=>"A23", "price_paid"=>"56", "address"=>"test2234\r\nsaujana impian\r\n43000\r\n", "email_address"=>"raiyan@gmail.com"}, "commit"=>"Create", "authenticity_token"=>"21M/xqUjJlmtg/jvB7F2JT49jaQNdsFvO1KPcNMJx2A="}
+  [4;36;1mTicket Create (0.0ms)[0m   [0;1mINSERT INTO "tickets" ("name", "updated_at", "seat_id_seq", "price_paid", "address", "email_address", "created_at") VALUES('raiyan iman bin azwan', '2009-07-27 01:42:09', 'A23', 56.0, 'test2234
+saujana impian
+43000
+', 'raiyan@gmail.com', '2009-07-27 01:42:09')[0m
+Redirected to http://localhost:3000/tickets/3
+Completed in 469ms (DB: 0) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 09:42:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets"."id" = 3) [0m
+Rendering template within layouts/tickets
+Rendering tickets/show
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets/3]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 09:42:11) [GET]
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2009-07-27 09:42:46) [GET]
+Rendering template within layouts/tickets
+Rendering tickets/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets/new]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-07-27 09:43:39) [POST]
+  Parameters: {"ticket"=>{"name"=>"raaiq nuqman", "seat_id_seq"=>"S2233", "price_paid"=>"67", "address"=>"kampung parit rambai\r\n82000 pontian\r\n", "email_address"=>"raaiq@gmail.com"}, "commit"=>"Create", "authenticity_token"=>"21M/xqUjJlmtg/jvB7F2JT49jaQNdsFvO1KPcNMJx2A="}
+  [4;35;1mTicket Create (0.0ms)[0m   [0mINSERT INTO "tickets" ("name", "updated_at", "seat_id_seq", "price_paid", "address", "email_address", "created_at") VALUES('raaiq nuqman', '2009-07-27 01:43:39', 'S2233', 67.0, 'kampung parit rambai
+82000 pontian
+', 'raaiq@gmail.com', '2009-07-27 01:43:39')[0m
+Redirected to http://localhost:3000/tickets/4
+Completed in 219ms (DB: 0) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 09:43:39) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 4) [0m
+Rendering template within layouts/tickets
+Rendering tickets/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tickets/4]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 09:43:43) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 09:44:56) [GET]
+  Parameters: {"id"=>"find"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Ticket with ID=find):
+  app/controllers/tickets_controller.rb:16:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (203.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 09:45:22) [GET]
+  [4;35;1mTicket Load (15.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:33:22) [GET]
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+ERROR: compiling _run_erb_app47views47layouts47tickets46html46erb RAISED compile error
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:14: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = text_field_tag:search_string;...
+                              ^
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:15: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = submit_tag "Search" ; @output...
+                              ^
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:19: syntax error, unexpected '=', expecting kEND
+...<p style =\"solor:blue\">";  = flash [:notice] ; @output_buf...
+                              ^
+Function body:           def _run_erb_app47views47layouts47tickets46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n"
+@output_buffer.concat "       \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n"
+@output_buffer.concat "<head>\n"
+@output_buffer.concat "  <meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\" />\n"
+@output_buffer.concat "  <title>Tickets: "; @output_buffer.concat(( controller.action_name ).to_s); @output_buffer.concat "</title>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( stylesheet_link_tag 'scaffold' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</head>\n"
+@output_buffer.concat "<body>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<span style=\"text-align: right\">\n"
+@output_buffer.concat "\t";  form_tag "/tickets/find" do ; @output_buffer.concat "\n"
+@output_buffer.concat "\t";  = text_field_tag:search_string; @output_buffer.concat "\n"
+@output_buffer.concat "\t";  = submit_tag "Search" ; @output_buffer.concat "\n"
+@output_buffer.concat "\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t</span>\n"
+@output_buffer.concat "\t\n"
+@output_buffer.concat "\t<p style =\"solor:blue\">";  = flash [:notice] ; @output_buffer.concat " </p>\n"
+@output_buffer.concat "<p style=\"color: green\">"; @output_buffer.concat(( flash[:notice] ).to_s); @output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( yield ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "</body>\n"
+@output_buffer.concat "</html>\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:29:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:347:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/Ruby/projects/tickets/app/controllers/tickets_controller.rb:7:in `index'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:13:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:14: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = text_field_tag:search_string;...
+                              ^
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:15: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = submit_tag "Search" ; @output...
+                              ^
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:19: syntax error, unexpected '=', expecting kEND
+...<p style =\"solor:blue\">";  = flash [:notice] ; @output_buf...
+                              ^) on line #14 of app/views/layouts/tickets.html.erb:
+11: 
+12: <span style="text-align: right">
+13: 	<% form_tag "/tickets/find" do %>
+14: 	<% = text_field_tag:search_string%>
+15: 	<% = submit_tag "Search" %>
+16: 	<% end %>
+17: 	</span>
+
+    app/views/layouts/tickets.html.erb:29:in `compile!'
+    app/controllers/tickets_controller.rb:7:in `index'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (234.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:34:02) [GET]
+  [4;35;1mTicket Load (15.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+ERROR: compiling _run_erb_app47views47layouts47tickets46html46erb RAISED compile error
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:14: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = text_field_tag:search_string;...
+                              ^
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:15: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = submit_tag "Search" ; @output...
+                              ^
+Function body:           def _run_erb_app47views47layouts47tickets46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n"
+@output_buffer.concat "       \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n"
+@output_buffer.concat "<head>\n"
+@output_buffer.concat "  <meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\" />\n"
+@output_buffer.concat "  <title>Tickets: "; @output_buffer.concat(( controller.action_name ).to_s); @output_buffer.concat "</title>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( stylesheet_link_tag 'scaffold' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</head>\n"
+@output_buffer.concat "<body>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<span style=\"text-align: right\">\n"
+@output_buffer.concat "\t";  form_tag "/tickets/find" do ; @output_buffer.concat "\n"
+@output_buffer.concat "\t";  = text_field_tag:search_string; @output_buffer.concat "\n"
+@output_buffer.concat "\t";  = submit_tag "Search" ; @output_buffer.concat "\n"
+@output_buffer.concat "\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t</span>\n"
+@output_buffer.concat "\t\n"
+@output_buffer.concat "<p style=\"color: green\">"; @output_buffer.concat(( flash[:notice] ).to_s); @output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( yield ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "</body>\n"
+@output_buffer.concat "</html>\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:28:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:347:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/Ruby/projects/tickets/app/controllers/tickets_controller.rb:7:in `index'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:13:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:14: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = text_field_tag:search_string;...
+                              ^
+C:/Ruby/projects/tickets/app/views/layouts/tickets.html.erb:15: syntax error, unexpected '=', expecting kEND
+@output_buffer.concat "\t";  = submit_tag "Search" ; @output...
+                              ^) on line #14 of app/views/layouts/tickets.html.erb:
+11: 
+12: <span style="text-align: right">
+13: 	<% form_tag "/tickets/find" do %>
+14: 	<% = text_field_tag:search_string%>
+15: 	<% = submit_tag "Search" %>
+16: 	<% end %>
+17: 	</span>
+
+    app/views/layouts/tickets.html.erb:28:in `compile!'
+    app/controllers/tickets_controller.rb:7:in `index'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 10:34:07) [GET]
+  Parameters: {"id"=>"find"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Ticket with ID=find):
+  app/controllers/tickets_controller.rb:16:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (203.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 10:36:27) [GET]
+  Parameters: {"id"=>"find"}
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Ticket with ID=find):
+  app/controllers/tickets_controller.rb:16:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 10:36:30) [GET]
+  Parameters: {"id"=>"find"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Ticket with ID=find):
+  app/controllers/tickets_controller.rb:16:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (204.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:36:34) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 10:36:40) [GET]
+  Parameters: {"id"=>"find"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Ticket with ID=find):
+  app/controllers/tickets_controller.rb:16:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:36:45) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 140ms (View: 125, DB: 0) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#find (for 127.0.0.1 at 2009-07-27 10:37:09) [POST]
+  Parameters: {"search_string"=>"azwan", "commit"=>"Search", "authenticity_token"=>"21M/xqUjJlmtg/jvB7F2JT49jaQNdsFvO1KPcNMJx2A="}
+
+ActionController::UnknownAction (No action responded to find. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#find (for 127.0.0.1 at 2009-07-27 10:37:28) [POST]
+  Parameters: {"search_string"=>"name", "commit"=>"Search", "authenticity_token"=>"21M/xqUjJlmtg/jvB7F2JT49jaQNdsFvO1KPcNMJx2A="}
+
+ActionController::UnknownAction (No action responded to find. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:38:04) [GET]
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#find (for 127.0.0.1 at 2009-07-27 10:38:06) [POST]
+  Parameters: {"search_string"=>"", "commit"=>"Cari", "authenticity_token"=>"21M/xqUjJlmtg/jvB7F2JT49jaQNdsFvO1KPcNMJx2A="}
+
+ActionController::UnknownAction (No action responded to find. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:41:45) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 10:41:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 1) [0m
+Rendering template within layouts/tickets
+Rendering tickets/show
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/tickets/1]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:41:57) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at 2009-07-27 10:42:00) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 3) [0m
+Rendering template within layouts/tickets
+Rendering tickets/edit
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/tickets/3/edit]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at 2009-07-27 10:46:01) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets"."id" = 3) [0m
+Rendering template within layouts/tickets
+Rendering tickets/edit
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tickets/3/edit]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-07-27 10:46:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 3) [0m
+Rendering template within layouts/tickets
+Rendering tickets/show
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets/3]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-07-27 10:46:11) [GET]
+  [4;35;1mTicket Load (0.0ms)[0m   [0mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 156ms (View: 140, DB: 0) | 200 OK [http://localhost/tickets]
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2009-07-27 10:46:14) [GET]
+Rendering template within layouts/tickets
+Rendering tickets/new
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/tickets/new]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at 2009-07-27 10:46:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTicket Load (0.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets"."id" = 2) [0m
+Rendering template within layouts/tickets
+Rendering tickets/edit
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tickets/2/edit]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-08-03 09:16:34) [GET]
+  [4;36;1mTicket Load (15.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 1421ms (View: 1375, DB: 15) | 200 OK [http://localhost/tickets/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-03 10:01:56) [GET]
+
+ActionController::RoutingError (No route matches "/chap4/" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-08-11 12:55:07) [GET]
+  [4;36;1mTicket Load (94.0ms)[0m   [0;1mSELECT * FROM "tickets" [0m
+Rendering template within layouts/tickets
+Rendering tickets/index
+Completed in 1921ms (View: 1718, DB: 94) | 200 OK [http://localhost/tickets/]
